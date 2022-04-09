@@ -1,0 +1,2 @@
+- [QT-designer如何安装问题，实际不用anaconda的，直接系统也有](https://blog.csdn.net/weixin_41929524/article/details/81456308)，系统文件位置：C:\Users\39770\AppData\Local\Programs\Python\Python37\Lib\site-packages\qt5_applications\Qt\bin
+- [pyqt-designer的ui转为python文件](https://blog.csdn.net/Angelasan/article/details/44917283)
