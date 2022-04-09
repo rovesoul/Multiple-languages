@@ -3,6 +3,8 @@
 ## Introduction - 介绍
 学习多种语言的部分笔记，均以Markdown形式记录。
 其中：[多语言对比.md](多语言对比.md) 中汇总了表达同一个意思时不同语言的不同语法。
+
+
 ### Summary - 概要
 上述md文档中记录了 `python 、JS、 Go 、Swift 、C++、Java`的语法结构。
 
