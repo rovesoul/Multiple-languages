@@ -236,3 +236,17 @@ That leaves  `json`, which is a good option. While it can't handle every kind of
 ## 暂时没看懂的
 
 ![image-20220323134825844](.\笔记素材图\image-20220323134825844.png)
+
+
+
+
+
+Tree 学习帖子
+
+[(75条消息) 《tkinter实用教程21》treeview 节点插入、单选、多选、事件、树、表格_@魏大大(⑉°з°)-♡的博客-CSDN博客_treeview](https://blog.csdn.net/weixin_43302112/article/details/122172171)
+
+[Tkinter 之TreeView表格与树状标签 - 样子2018 - 博客园 (cnblogs.com)](https://www.cnblogs.com/yang-2018/p/11824250.html)
+
+[tkinter.ttk的Treeview组件超详细讲解 - 何老师的济亨网 (wb98.com)](http://wb98.com/post/341.html)
+
+[(75条消息) Python+tkinter+Treeview模拟表格并设置字体和颜色_dongfuguo的博客-CSDN博客_python treeview 字体颜色](https://blog.csdn.net/dongfuguo/article/details/118066346)
