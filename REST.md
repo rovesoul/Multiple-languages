@@ -12,10 +12,14 @@
 
  这样就统一了数据操作的接口，仅通过HTTP方法，就可以完成对数据的所有增查改删工作。即：  
 
+ ◇ POST（CREATE）：在服务器新建一个资源。 
+
  ◇ GET（READ）：从服务器取出资源（一项或多项）。
- ◇ POST（CREATE）：在服务器新建一个资源。
+
  ◇ PUT（UPDATE）：在服务器更新资源（客户端提供完整资源数据）。
+
  ◇ PATCH（UPDATE）：在服务器更新资源（客户端提供需要修改的资源数据）。
+
  ◇ DELETE（DELETE）：从服务器删除资源。  
 
 
@@ -65,3 +69,16 @@ type Request struct {
 }
 ```
 
+![image-20220528005509240](笔记素材图/REST01.png)上图说明了什么是资源，且下部的url并不好，建议是下边的规则
+
+post:创建新的资源
+
+put:更新
+
+patch:部分更新
+
+![image-20220528010033832](笔记素材图/RESTgoodUrl.png)
+
+![image-20220528010221988](笔记素材图/RESTgoodUrl02.png)
+
+![image-20220528010917413](笔记素材图/RESTbe_stateless.png)

@@ -88,3 +88,46 @@ Dynamic
 Single-threaded
 
 non-blocking event loop
+
+
+
+## 创建类：
+
+### 扩展类
+
+```js
+const EventEmitter = require("events");
+const http = require("http");
+// const myEmitter = new EventEmitter();
+
+class Sales extends EventEmitter {
+    constructor() {
+        super();
+    }
+}
+```
+
+## 流：
+
+可读、可写、双工、转换
+
+![image-20220526234125242](.\笔记素材图\4stream.png)
+
+# 导入模块系统解析
+
+![moudle system](.\笔记素材图\module-system.png)
+
+loading
+
+![loading](.\笔记素材图\loadingmoudle.png)
+
+wrapping
+
+![wrapping](.\笔记素材图\wrapping moudle.png)
+
+execution 没得讲，跳过
+
+return
+
+![image-20220527002256850](.\笔记素材图\export moudle.png)
+
