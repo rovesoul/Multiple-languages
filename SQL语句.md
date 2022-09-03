@@ -1,17 +1,23 @@
+## 数据库的ACID
+
+**ACID**，是指[数据库管理系统](https://baike.baidu.com/item/数据库管理系统)（[DBMS](https://baike.baidu.com/item/DBMS)）在写入或更新资料的过程中，为保证[事务](https://baike.baidu.com/item/事务)（transaction）是正确可靠的，所必须具备的四个特性：[原子性](https://baike.baidu.com/item/原子性)（atomicity，或称不可分割性）、[一致性](https://baike.baidu.com/item/一致性)（consistency）、[隔离性](https://baike.baidu.com/item/隔离性)（isolation，又称独立性）、[持久性](https://baike.baidu.com/item/持久性)（durability）。
+
+## mysql 操作语法
+
 ![mysql](.\笔记素材图\Mysql.png)
 
-1. 创建数据库
+### 1. 创建数据库
 
  ```mysql
 CREATE DATABASE database-name
  ```
-2. 删除数据库
+### 2. 删除数据库
 
 ```mysql
 drop database dbname
 ```
 
-3. 备份 sql server
+### 3. 备份 sql server
 
 ```mysql
 //创建 备份数据的 device
@@ -21,7 +27,7 @@ EXEC sp_addumpdevice 'disk', 'testBack', 'c:\mssql7backup\MyNwind_1.dat'
 BACKUP DATABASE pubs TO testBack
 ```
 
-4. 创建新表
+### 4. 创建新表
 
 ```mysql
 create table tabname(col1 type1 [not null] [primary key],col2 type2 [not null],..)
@@ -30,38 +36,38 @@ A：create table tab_new like tab_old (使用旧表创建新表)
 B：create table tab_new as select col1,col2… from tab_old definition only
 ```
 
-5. 删除新表
+### 5. 删除新表
 
 ```mysql
 drop table tabname
 ```
 
-6. 增加一个列
+### 6. 增加一个列
 
 ```mysql
 Alter table tabname add column col type
 //列增加后将不能删除。DB2中列加上后数据类型也不能改变，唯一能改变的是增加varchar类型的长度。
 ```
 
-7. 添加主键
+### 7. 添加主键
 ```mysql
 Alter table tabname add primary key(col) 
 //说明：删除主键：** Alter table tabname drop primary key(col) 
 ```
-8. 创建索引
+### 8. 创建索引
 ```mysql
 create [unique] index idxname on tabname(col….) 
 //删除索引
 drop index idxname
 //索引是不可更改的，想更改必须删除重新建。
 ```
-9. 创建视图
+### 9. 创建视图
 ```mysql
 create view viewname as select statement 
 //删除视图
 drop view viewname
 ```
-10. 几个简单的基本的 sql 语句
+### 10. 几个简单的基本的 sql 语句
 ```mysql
 //选择：
 select * from table1 where 范围
@@ -86,7 +92,7 @@ select max(field1) as maxvalue from table1
 //最小：
 select min(field1) as minvalue from table1
 ```
-11. 几个高级查询运算词
+### 11. 几个高级查询运算词
 ```mysql
 A： UNION 运算符 **
 UNION 运算符通过组合其他两个结果表（例如 TABLE1 和 TABLE2）并消去表中任何重复行而派生出一个结果表。当 ALL 随 UNION 一起使用时（即 UNION ALL），不消除重复行。两种情况下，派生表的每一行不是来自 TABLE1 就是来自 TABLE2。
@@ -96,7 +102,7 @@ C：INTERSECT 运算符
 INTERSECT 运算符通过只包括 TABLE1 和 TABLE2 中都有的行并消除所有重复行而派生出一个结果表。当 ALL 随 INTERSECT 一起使用时 (INTERSECT ALL)，不消除重复行。
 注：使用运算词的几个查询结果行必须是一致的。
 ```
-12. 使用外连接
+### 12. 使用外连接
 ```mysql
 A、left （outer） join：
 左外连接（左连接）：结果集几包括连接表的匹配行，也包括左连接表的所有行。
@@ -106,25 +112,25 @@ B：right （outer） join:
 C：full/cross （outer） join：
 全外连接：不仅包括符号连接表的匹配行，还包括两个连接表中的所有记录。
 ```
-13. 分组：Group by:
+### 13. 分组：Group by:
 ```mysql
 一张表，一旦分组 完成后，查询后只能得到组相关的信息。
 组相关的信息：（统计信息） count,sum,max,min,avg ** 分组的标准
 在 SQLServer 中分组时：不能以 text,ntext,image 类型的字段作为分组依据
 在 selecte 统计函数中的字段，不能和普通的字段放在一起；
 ```
-14. 对数据库进行操作：
+### 14. 对数据库进行操作：
 ```mysql
 分离数据库：sp_detach_db; 附加数据库：sp_attach_db 后接表明，附加需要完整的路径名
 
 //修改数据库的名称:
 sp_renamedb 'old_name', 'new_name'
 ```
-二、提升
+## mysql提升
 
 
 
-1. 复制表 (只复制结构，源表名：a 新表名：b) (Access 可用)
+### 1. 复制表 (只复制结构，源表名：a 新表名：b) (Access 可用)
 
 ```mysql
 //法一
@@ -134,53 +140,53 @@ select top 0 * into b from a
 ```
 
 
-2. 拷贝表 (拷贝数据，源表名：a 目标表名：b) (Access 可用)
+### 2. 拷贝表 (拷贝数据，源表名：a 目标表名：b) (Access 可用)
 ```mysql
 insert into b(a, b, c) select d,e,f from b;
 ```
-3. 跨数据库之间表的拷贝 (具体数据使用绝对路径) (Access 可用)
+### 3. 跨数据库之间表的拷贝 (具体数据使用绝对路径) (Access 可用)
 ```mysql
 insert into b(a, b, c) select d,e,f from b in ‘具体数据库’ where 条件
 例子：..from b in '"&Server.MapPath(".")&"\data.mdb" &"' where..
 ```
-4. 子查询 (表名 1：a 表名 2：b)
+### 4. 子查询 (表名 1：a 表名 2：b)
 ```mysql
 select a,b,c from a where a IN (select d from b ) 或者: select a,b,c from a where a IN (1,2,3)
 ```
-5. 显示文章、提交人和最后回复时间
+### 5. 显示文章、提交人和最后回复时间
 ```mysql
 select a.title,a.username,b.adddate from table a,(select max(adddate) adddate from table where table.title=a.title) b
 ```
-6. 外连接查询 (表名 1：a 表名 2：b)
+### 6. 外连接查询 (表名 1：a 表名 2：b)
 ```mysql
 select a.a, a.b, a.c, b.c, b.d, b.f from a LEFT OUT JOIN b ON a.a = b.c
 ```
-7. 在线视图查询 (表名 1：a)
+### 7. 在线视图查询 (表名 1：a)
 ```mysql
 select * from (SELECT a,b,c FROM a) T where t.a > 1;
 ```
-8.between 的用法，between 限制查询数据范围时包括了边界值，not between 不包括
+### 8.between 的用法，between 限制查询数据范围时包括了边界值，not between 不包括
 ```mysql
 select * from table1 where time between time1 and time2
 select a,b,c, from table1 where a not between 数值1 and 数值2
 ```
-9.in 的使用方法
+### 9.in 的使用方法
 ```mysql
 select * from table1 where a [not] in (‘值1’,’值2’,’值4’,’值6’)
 ```
-10. 两张关联表，删除主表中已经在副表中没有的信息
+### 10. 两张关联表，删除主表中已经在副表中没有的信息
 ```mysql
 delete from table1 where not exists ( select * from table2 where table1.field1=table2.field1 )
 ```
-11. 四表联查问题：
+### 11. 四表联查问题：
 ```mysql
 select * from a left inner join b on a.a=b.b right inner join c on a.a=c.c inner join d on a.a=d.d where .....
 ```
-12. 日程安排提前五分钟提醒
+### 12. 日程安排提前五分钟提醒
 ```mysql
 SQL: select * from 日程安排 where datediff('minute',f开始时间,getdate())>5
 ```
-13. 一条 *sql * 语句搞定数据库分页
+### 13. 一条 *sql * 语句搞定数据库分页
 ```mysql
 select top 10 b.* from (select top 20 主键字段,排序字段 from 表名 order by 排序字段 desc) a,表名 b where b.主键字段 = a.主键字段 order by a.排序字段**具体实现：**关于数据库分页：
   declare [@start](https://learnku.com/users/7236) int,@end int
@@ -189,52 +195,60 @@ select top 10 b.* from (select top 20 主键字段,排序字段 from 表名 orde
   exec sp_executesql @sql
 //注意：在 top 后不能直接跟一个变量，所以在实际应用中只有这样的进行特殊的处理。Rid 为一个标识列，如果 top 后还有具体的字段，这样做是非常有好处的。因为这样可以避免 ** top** 的字段如果是逻辑索引的，查询的结果后实际表中的不一致（逻辑索引中的数据有可能和数据表中的不一致，而查询时如果处在索引则首先查询索引）**
 ```
-14. 前 10 条记录
+### 14. 前 10 条记录
 
 ```mysql
 select top 10 * form table1 where 范围
 ```
-15. 选择在每一组 b 值相同的数据中对应的 a 最大的记录的所有信息 (类似这样的用法可以用于论坛每月排行榜，每月热销产品分析，按科目成绩排名，等等.)
+### 15. 选择在每一组 b 值相同的数据中对应的 a 最大的记录的所有信息
+
+(类似这样的用法可以用于论坛每月排行榜，每月热销产品分析，按科目成绩排名，等等.)
+
 ```mysql
 select a,b,c from tablename ta where a=(select max(a) from tablename tb where tb.b=ta.b)
 ```
-16. 包括所有在 TableA 中但不在 TableB 和 TableC 中的行并消除所有重复行而派生出一个结果表
+### 16. 包括所有在 TableA 中但不在 TableB 和 TableC 中的行并消除所有重复行而派生出一个结果表
 ```mysql
 (select a from tableA ) except (select a from tableB) except (select a from tableC)
 ```
-17. 随机取出 10 条数据
+### 17. 随机取出 10 条数据
 ```mysql
 select top 10 * from tablename order by **newid()**
 ```
-18. 随机选择记录
+### 18. 随机选择记录
 ```mysql
 select newid()
 ```
-19. 删除重复记录
+### 19. 删除重复记录
 ```mysql
 //1
+
 delete from tablename where id not in (select max(id) from tablename group by col1,col2,...)
+
 //2
+
 select distinct * into temp from tablename
   delete from tablename
   insert into tablename select * from temp
+```
 说明：这种操作牵连大量的数据的移动，这种做法不适合大容量但数据操作 3), 例如：在一个外部表中导入数据，由于某些原因第一次只导入了一部分，但很难判断具体位置，这样只有在下一次全部导入，这样也就产生好多重复的字段，怎样删除重复字段
+```mysql
 alter table tablename
-–添加一个自增列
+-- 添加一个自增列
 add column_b int identity(1,1)
 delete from tablename where column_b not in(
 select max(column_b) from tablename group by column1,column2,…)
-alter table tablename drop column column_b
+alter table tablename drop column column_b 
 ```
-20. 列出数据库里所有的表名
+### 20. 列出数据库里所有的表名
 ```mysql
 select name from sysobjects where type='U' // U代表用户
 ```
-21. 列出表里的所有的列名
+### 21. 列出表里的所有的列名
 ```mysql
 select name from syscolumns where id=object_id('TableName')
 ```
-22. 列示 type、vender、pcs 字段，以 type 字段排列，case 可以方便地实现多重选择，类似 select 中的 case。
+### 22. 列示 type、vender、pcs 字段，以 type 字段排列，case 可以方便地实现多重选择，类似 select 中的 case。
 ```mysql
 select type,sum(case vender when 'A' then pcs else 0 end),sum(case vender when 'C' then pcs else 0 end),sum(case vender when 'B' then pcs else 0 end) FROM tablename group by type
 
@@ -247,18 +261,18 @@ type vender pcs
 手机 B 3
 手机 C 3
 ```
-23. 初始化表 table1
+### 23. 初始化表 table1
 ```mysql
 TRUNCATE TABLE table1
 ```
-24. 选择从 10 到 15 的记录
+### 24. 选择从 10 到 15 的记录
 ```mysql
 select top 5 * from (select top 15 * from table order by id asc) table_别名 order by id desc
 ```
-三、技巧
+## 三、技巧
 
-1=1，1=2 的使用，在 SQL 语句组合时用的较多
-```
+### 1=1，1=2 的使用，在 SQL 语句组合时用的较多
+```mysql
 “where 1=1” 是表示选择全部 “where 1=2” 全部不选
 如：
 if @strWhere !=’’
@@ -271,7 +285,7 @@ set @strSQL = ‘select count() as Total from [‘ + @tblName + ‘]’
 end
 ```
 
-2. 收缩数据库
+### 2. 收缩数据库
 ```mysql
 --重建索引
 DBCC REINDEX
@@ -280,20 +294,20 @@ DBCC INDEXDEFRAG
 DBCC SHRINKDB
 DBCC SHRINKFILE
 ```
-3. 压缩数据库
+### 3. 压缩数据库
 ```mysql
 dbcc shrinkdatabase(dbname)
 ```
-4. 转移数据库给新用户以已存在用户权限
+### 4. 转移数据库给新用户以已存在用户权限
 ```mysql
 exec sp_change_users_login 'update_one','newname','oldname'
 go
 ```
-5. 检查备份集
+### 5. 检查备份集
 ```mysql
 RESTORE VERIFYONLY from disk='E:\dvbbs.bak'
 ```
-6. 修复数据库
+### 6. 修复数据库
 ```mysql
 ALTER DATABASE [dvbbs] SET SINGLE_USER
 GO
@@ -302,7 +316,7 @@ GO
 ALTER DATABASE [dvbbs] SET MULTI_USER
 GO
 ```
-7. 日志清除
+### 7. 日志清除
 ```mysql
 SET NOCOUNT ON
 DECLARE @LogicalFileName sysname,
@@ -354,11 +368,11 @@ SELECT 'Final Size of ' + db_name() + ' LOG is ' +
 DROP TABLE DummyTrans
 SET NOCOUNT OFF
 ```
-8. 更改某个表
+### 8. 更改某个表
 ```mysql
 exec sp_changeobjectowner 'tablename','dbo'
 ```
-9. 存储更改全部表
+### 9. 存储更改全部表
 ```mysql
 CREATE PROCEDURE dbo.User_ChangeObjectOwnerBatch
 @OldOwner as NVARCHAR(128),
@@ -394,7 +408,7 @@ close curObject
 deallocate curObject
 GO
 ```
-10.SQL SERVER 中直接循环写入数据
+### 10.SQL SERVER 中直接循环写入数据
 ```mysql
 declare @i int
 set @i=1
@@ -422,12 +436,12 @@ else
 continue
 end
 ```
-数据开发 - 经典
-1. 按姓氏笔画排序:
+## 数据开发 - 经典
+### 1. 按姓氏笔画排序:
 ```mysql
 Select * From TableName Order By CustomerName Collate Chinese_PRC_Stroke_ci_as //从少到多
 ```
-2. 数据库加密:
+### 2. 数据库加密:
 ```mysql
 select encrypt('原始密码')
 select pwdencrypt('原始密码')
@@ -435,7 +449,7 @@ select pwdcompare('原始密码','加密后密码') = 1--相同；否则不相�
 select pwdencrypt('原始密码')
 select pwdcompare('原始密码','加密后密码') = 1--相同；否则不相同
 ```
-3. 取回表中字段:
+### 3. 取回表中字段:
 ```mysql
 declare @list varchar(1000),
 @sql nvarchar(1000)
@@ -443,11 +457,11 @@ select @list=@list+’,’+b.name from sysobjects a,syscolumns b where a.id=b.id
 set @sql=’select ‘+right(@list,len(@list)-1)+’ from 表 A’
 exec (@sql)
 ```
-4. 查看硬盘分区:
+### 4. 查看硬盘分区:
 ```mysql
 EXEC master..xp_fixeddrives**
 ```
-5. 比较 A,B 表是否相等:
+### 5. 比较 A,B 表是否相等:
 ```mysql
 if (select checksum_agg(binary_checksum(*)) from A)
      =
@@ -456,13 +470,13 @@ print '相等'
 else
 print '不相等'
 ```
-6. 杀掉所有的事件探察器进程:
+### 6. 杀掉所有的事件探察器进程:
 ```mysql
 DECLARE hcforeach CURSOR GLOBAL FOR SELECT 'kill '+RTRIM(spid) FROM master.dbo.sysprocesses
 WHERE program_name IN('SQL profiler',N'SQL 事件探查器')
 EXEC sp_msforeach_worker '?'
 ```
-7. 记录搜索:
+### 7. 记录搜索:
 ```mysql
 //开头到N条记录
 Select Top N * From 表

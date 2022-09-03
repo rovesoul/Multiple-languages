@@ -2,6 +2,24 @@
 
 ![image-20220530173729826](笔记素材图/MongoDB_Bson.png)
 
+
+
+Udemy MongoDB课程笔记：
+
+区分  `Databases`,`Collections`,`Documents`
+
+```shell
+//换端口启动mongodb
+sudo mongod --port 27018 
+
+//mongo 链接换端口
+mongo --port 27018
+```
+
+
+
+
+
 ```sql
 -- 创建数据库
 use natours-test  
@@ -19,7 +37,8 @@ db.tours.insertMany([{name:"the sea explore",price:498,rating:4.8},{name:"the sn
 
 -- 查找数据
 // 查找全部
-db.tours.find()      
+db.tours.find()    
+db.inventory.find().pretty()   //查找漂亮排序，shell中用
 // 按名字查找
 db.tours.find({name:"the forest hiker"})   
 // 安困难程度找
@@ -38,7 +57,8 @@ db.tours.updateOne({name:"the snow adventurer"},{ $set:{ price:888 } })
 db.tours.updateMany( { price:{$gt:500},rating:{ $gte:3.8 }},{$set :{premium:true}})  
 // 替换文档
 
-
+//所有数据增加字段
+　db.table.update({}, {$set: {content:""}}, {multi: true}) //multi=true这个，可以修改多个数据，不加仅修改一个
 -- 删除
 现在有三个，(objectId缩略了)
 { "_id" : ObjectId("62...8"), "name" : "the forest hiker", "price" : 297, "rating" : 4.7 }
