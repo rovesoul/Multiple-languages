@@ -41,9 +41,9 @@ Linux mostly free   open source.
 
 
 
-<img src="笔记素材图/image-20220830013510751.png" alt="image-20220830013510751" style="zoom:50%;" />
+<img src="./笔记素材图/image-20220830013510751.png" alt="image-20220830013510751" style="zoom:50%;" />
 
-<img src="笔记素材图/image-20220830013632861.png" alt="image-20220830013632861" style="zoom:50%;" />
+<img src="./笔记素材图/image-20220830013632861.png" alt="image-20220830013632861" style="zoom:50%;" />
 
 9.5G，需要挂很久《centos-7-x86_64-everthing-2009》
 
@@ -63,7 +63,7 @@ hostname
 
 2. 设置中将服务器修改如下内容
 
-![image-20220830234551462](笔记素材图/image-20220830234551462.png)
+![image-20220830234551462](./笔记素材图/image-20220830234551462.png)
 
 3. `ifconfig`查看ip，并进行链接，如果不是192.。。ip格式，可先输入`ifup enp0s3`
 
