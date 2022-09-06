@@ -1,6 +1,6 @@
-![image-20220530173609732](笔记素材图/MongoDB特性.png)
+![image-20220530173609732](./笔记素材图/MongoDB特性.png)
 
-![image-20220530173729826](笔记素材图/MongoDB_Bson.png)
+![image-20220530173729826](./笔记素材图/MongoDB_Bson.png)
 
 
 
