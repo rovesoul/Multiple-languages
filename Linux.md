@@ -108,7 +108,10 @@ hostname
 |`su -`    切换到root用户|`clear`      清空屏幕|
 | `ls -l` 带属性| `mkdir xxx`   创建文件夹   |
 |`ls -ltr`   带顺序罗列|`cp aaa bbb`  复制aaa文件为bbb|
-|`vi xxx`   创建内容写东西，`esc`-> `:wq!`保存退出|
+|`vi xxx`   创建内容写东西，`esc`-> `:wq!`保存退出|`passwd`  修改密码|
+| `ln -s aaa bbb`链接两个文件    ln软连接，ln -s硬链接 | `chomd` 修改文件权限 |
+| `chown` and `chgrp` |                                |
+|                             |      |
 
 
 
@@ -131,3 +134,40 @@ hostname
 ![image-20220902090712870](笔记素材图/image-20220902090712870.png)
 
 `locate`
+
+
+
+> 系统颜色说明
+
+<img src="笔记素材图/image-20220903121919183.png" alt="image-20220903121919183" style="zoom: 50%;" />
+
+# 文件权限
+
+> 三种权限类型
+
+- r -read
+- w -write
+- x -execute = running a program
+
+> rwx三种权限可以被控制为三种权限
+
+- u   - user = yourself
+- g  - group = can be people in the same project
+- o - other=everyone on the system
+
+> help commands
+
+- **whatis** command
+- command **--help**
+- **man** command
+
+> 写入文件
+
+- `echo "hello"  > jerry`  向jerry文件中写入hello
+- `echo "hello2"  >> jerry`  向jerry文件中写入hello，新的一行
+
+> input and output redirects
+
+- stdin       0
+- stdout    1
+- stderr     2
