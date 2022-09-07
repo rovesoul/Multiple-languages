@@ -171,3 +171,14 @@ hostname
 - stdin       0
 - stdout    1
 - stderr     2
+
+
+
+> standard output a file (tee)标准输出到文件
+
+- `echo "balabala" | tee xxxfile`   此命令将打印并将巴拉巴拉巴拉存到xxxfile中
+- `echo "lala222" | -a tee xxxfile`   此命令将打印并lala2追加保存到xxxfile中
+  ![image-20220907123313001](./笔记素材图/image-20220907123313001.png)
+
+- 如使用`ls -l | tee listdir`  不仅打印出文件目录，而且将文件目录存入listdir文件中
+- `wc -c xxxfile`  统计xxxfile中字符数量
