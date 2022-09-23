@@ -110,8 +110,15 @@ hostname
 |`ls -ltr`   带顺序罗列|`cp aaa bbb`  复制aaa文件为bbb|
 |`vi xxx`   创建内容写东西，`esc`-> `:wq!`保存退出|`passwd`  修改密码|
 | `ln -s aaa bbb`链接两个文件    ln软连接，ln -s硬链接 | `chomd` 修改文件权限 |
-| `chown` and `chgrp` |                                |
-|                             |      |
+| `chown` and `chgrp` | `cat` |
+| `more` | `less` |
+| `head` | `tail` |
+| `cut` | `awk` |
+| `grep` and `egrep` | `sort` |
+| `uniq` | `wc` |
+| `diff` | `cmp` |
+| `tar` | `gzip` |
+| `Gzip -d OR gunzip` |  |
 
 
 
@@ -182,3 +189,44 @@ hostname
 
 - 如使用`ls -l | tee listdir`  不仅打印出文件目录，而且将文件目录存入listdir文件中
 - `wc -c xxxfile`  统计xxxfile中字符数量
+
+
+
+* `cut`
+
+![image-20220923233434375](./笔记素材图/Linux/image-20220923233434375-3947280.png)
+
+![截屏2022-09-24 00.12.09](./笔记素材图/Linux/截屏2022-09-24 00.12.09-3949581.png)![截屏2022-09-24 00.13.35](/Users/donghuibiao/Library/Application Support/typora-user-images/截屏2022-09-24 00.13.35.png)
+
+![截屏2022-09-24 00.15.02](./笔记素材图/Linux/截屏2022-09-24 00.15.02-3949706.png)
+
+
+
+
+
+### linux 对比 windows cmd 的指令
+
+![截屏2022-09-24 00.16.47](./笔记素材图/Linux/截屏2022-09-24 00.16.47-3949812.png)
+
+# 第五章 linux file editor
+
+## 快捷指令包括 
+
+> vi       --        visual editor.   
+>
+> 	- `i`        insert
+> 	- `Esc`    escape out of any mode
+> 	- `r`        replace 
+> 	- `d`        delete
+> 	- `:q!`    quit without saving
+> 	- `:Wq!`   quit and save
+>
+> ed      --       standard line editor
+>
+> ex       --      extended line editor
+>
+> emacs   --   a full screen editor
+>
+> pico       --   beginner's  editor
+>
+> vim        --   advance version of vi
