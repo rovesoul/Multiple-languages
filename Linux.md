@@ -200,19 +200,26 @@ hostname
 
 > vi -- visual editor.
 >
->     - `i`        insert
->     - `Esc`    escape out of any mode
->     - `r`        replace
->     - `d`        delete
->     - `:q!`    quit without saving
->     - `:Wq!`   quit and save
->
-> ed -- standard line editor
->
-> ex -- extended line editor
->
-> emacs -- a full screen editor
->
-> pico -- beginner's editor
->
-> vim -- advance version of vi
+     - `i`        insert
+     - `Esc`    escape out of any mode
+     - `r`        replace
+     - `d`        delete
+     - `:q!`    quit without saving
+     - `:Wq!`   quit and save
+
+> most common keys:
+
+ ed -- standard line editor
+
+ ex -- extended line editor
+
+ emacs -- a full screen editor
+
+ pico -- beginner's editor
+
+ vim -- advance version of vi
+
+#### vi 和 vim 对比
+
+<img src="./笔记素材图/Linux/image-20220925093731829-4069858.png" alt="image-20220925093731829" style="zoom:67%;" />
+
