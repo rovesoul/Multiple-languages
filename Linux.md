@@ -199,7 +199,7 @@ hostname
 ## 快捷指令包括
 
 > vi -- visual editor.
->
+
      - `i`        insert
      - `Esc`    escape out of any mode
      - `r`        replace
@@ -209,17 +209,16 @@ hostname
 
 > most common keys:
 
- ed -- standard line editor
+ed -- standard line editor
 
- ex -- extended line editor
+ex -- extended line editor
 
- emacs -- a full screen editor
+emacs -- a full screen editor
 
- pico -- beginner's editor
+pico -- beginner's editor
 
- vim -- advance version of vi
+vim -- advance version of vi
 
 #### vi 和 vim 对比
 
 <img src="./笔记素材图/Linux/image-20220925093731829-4069858.png" alt="image-20220925093731829" style="zoom:67%;" />
-
